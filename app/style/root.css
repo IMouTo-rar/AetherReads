@@ -1,0 +1,8 @@
+.root-frame {
+    display: grid;
+    grid-template-rows: 5rem 1fr;
+}
+
+.root-banner {
+    background-color: red;
+}
