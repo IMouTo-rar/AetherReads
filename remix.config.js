@@ -7,8 +7,22 @@ export default {
   // serverBuildPath: "build/index.js",
   routes(defineRoutes) {
     return defineRoutes((route) => {
-      route("/", "home/home.tsx", {index: true});
-      route("/books", "books/books.tsx")
+      // $home
+      route("/", "page.home/index.tsx", {index: true});
+      // book
+      route("/book", "page.book/index.tsx", () => {
+        route("", "page.book/book.tsx", {index: true});
+        route(":id", "page.book/book.id.tsx");
+      });
+      // personal
+      route("/personal", "page.personal/index.tsx", ({index: true}))
+      // library
+      route("/library", "page.library/index.tsx", ({index: true}))
+      // user
+      route("/user", "page.user/index.tsx", () => {
+        route("", "page.user/user.tsx", {index: true});
+        route(":id", "page.user/user.id.tsx");
+      });
     }
     );
   },

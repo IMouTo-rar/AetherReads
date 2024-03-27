@@ -2,25 +2,24 @@ import type {
   MetaFunction,
   LinksFunction
 } from "@remix-run/node";
+import { Outlet } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "AetherReads" },
-    { name: "description", content: "Welcome to AetherReads" },
+    { title: "AetherReads | User" },
+    { name: "description", content: "AetherReads Users" },
   ];
 };
 
-import styles from "~/home/style/home.css";
+import styles from "~/page.user/style/user.css";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
 ];
 
 export default function Index() {
   return (
-    <div className="home-frame">
-      <div>Dashborad Left</div>
-      <div>Main Page</div>
-      <div>Dashborad Roght</div>
+    <div className="frame user-frame">
+      <Outlet />
     </div>
   );
 }

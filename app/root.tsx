@@ -10,6 +10,7 @@ import {
 } from "@remix-run/react";
 
 import styles from "~/style/root.css";
+import Banner from "./root.banner/banner";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -22,17 +23,15 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="total16"/>
+        <meta name="author" content="total16" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body style={{ margin: 0 }}>
 
         <div className="root-frame">
-          <div className="root-banner">Banner</div>
-          <div>
-            <Outlet />
-          </div>
+          <Banner />
+          <Outlet />
         </div>
 
         <ScrollRestoration />
