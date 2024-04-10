@@ -1,15 +1,36 @@
+import type {
+  LoaderFunctionArgs,
+} from "@remix-run/node"; // or cloudflare/deno
 import { redirect } from "@remix-run/node"; // or cloudflare/deno
 
-export const action = async () => {
+import { getSession } from "../sessions";
+import { useLoaderData } from "@remix-run/react";
 
-  return redirect("/1");
+export async function loader({
+  request,
+}: LoaderFunctionArgs) {
+  const session = await getSession(
+    request.headers.get("Cookie")
+  );
+  console.log(session.has("userId"));
+  if (session.has("userId")) {
+    // Redirect to the personal page if they are already signed in.
+    return redirect("/personal");
+  }
+  else {
+    return redirect("/user/login");
+  }
+}
 
-};
+export async function action() {
+  
+}
 
-export default function User() {
+export default function Users() {
+  const useInfo = useLoaderData<typeof loader>();
   return (
     <div className="user-frame">
-      User
+      { JSON.stringify(useInfo) }
     </div>
   );
 }

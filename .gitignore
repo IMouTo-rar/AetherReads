@@ -1,8 +1,7 @@
 node_modules
 
 /.cache
-/asset
 /build
-/database
+/data
 /public/build
 .env

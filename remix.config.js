@@ -21,6 +21,7 @@ export default {
       // user
       route("/user", "page.user/index.tsx", () => {
         route("", "page.user/user.tsx", {index: true});
+        route("login", "page.user/user.login.tsx");
         route(":id", "page.user/user.id.tsx");
       });
     }

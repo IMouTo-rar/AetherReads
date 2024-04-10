@@ -1,19 +1,18 @@
 import { redirect } from "@remix-run/node"; // or cloudflare/deno
 import { NavLink, useLoaderData } from "@remix-run/react";
-import { books } from "database/books";
+
+import { findAllBooks } from "~/services/database.book.server";
 
 export async function action() {
-
   return redirect(`/book/1`);
-
 }
 
 export async function loader() {
-  const booklist = books;
+  const booklist = await findAllBooks();
   return booklist;
 }
 
-export default function Book() {
+export default function Books() {
   return (
     <div className="book-frame">
       Book List

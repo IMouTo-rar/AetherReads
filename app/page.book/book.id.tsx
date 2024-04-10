@@ -1,14 +1,15 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { books } from "database/books";
+
+import { serverFindBookById } from "~/impl/impl.book.server";
 
 export async function loader({
   params,
 }: LoaderFunctionArgs) {
   const id = Number(params.id);
-  const foundBook = books.find(obj => obj.id == id);
-
-  if (foundBook == undefined) {
+  const foundBook = await serverFindBookById(id);
+  
+  if (foundBook == undefined || null) {
     throw new Response(null, {
       status: 404,
       statusText: "Not Found",
@@ -18,8 +19,9 @@ export async function loader({
   return foundBook;
 }
 
-export default function Books() {
+export default function Book() {
   const book = useLoaderData<typeof loader>();
+
   return (
     <div>
       Book Found!
@@ -29,6 +31,8 @@ export default function Books() {
       Book Title: { book.title }
       <br/>
       Book Description: { book.description }
+      <br/>
+      Book JSON: { JSON.stringify(book) }
     </div>
   );
 }
