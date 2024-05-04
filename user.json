@@ -1,17 +1,13 @@
 {
-    "id": 0,
-    "accout": {
-        "username": "total16",
-        "password": "2520",
-        "avatar": "",
-        "phone": "18511749855",
-        "email": "daka0423@126.com",
-        "role": 0
-    },
-    "info": {
-        "name": "杨滨语",
-        "gender": 0,
-        "birthdate": "2002-04-23",
-        "adress": ""
-    }
+    "id": 13,
+    "title": "变形记",
+    "author": "卡夫卡",
+    "publisher": "上海译文出版社",
+    "publication_date": "2012",
+    "description": "《变形记》是奥地利作家弗兰茨·卡夫卡（Franz Kafka）于1915年创作的一部中篇小说，也是他最著名的作品之一。这部小说讲述了主人公格里高利·索尔姆（Gregor Samsa）突然发生的变异，变成了一个巨大的甲虫，以及这一变异对他个人生活和家庭关系的影响。",
+    "category": "literature",
+    "release": "total16",
+    "format": "pdf",
+    "file": "Die Verwandlung.pdfb",
+    "tags": ["literature"]
 }

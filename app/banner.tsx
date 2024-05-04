@@ -29,13 +29,7 @@ export default function Banner() {
         <NavLink to={"/library"}>
           Library
         </NavLink>
-
-        {/* <div className="banner-search">
-          <form>
-            <input type="text" placeholder="Search" />
-            <button></button>
-          </form>
-        </div> */}
+        
       </div>
 
       <div className="banner-acount">
