@@ -1,4 +1,3 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
@@ -10,11 +9,12 @@ import {
 } from "@remix-run/react";
 
 import styles from "~/style/root.css";
-import Banner from "./banner";
+import Banner from "./components/banner";
+import bannerStyle from "~/components/style/banner.css";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: bannerStyle }
 ];
 
 export default function App() {

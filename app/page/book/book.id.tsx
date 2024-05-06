@@ -3,6 +3,8 @@ import { NavLink, useLoaderData } from "@remix-run/react";
 
 import { serverFindBookById } from "~/impl/impl.books.server";
 
+import Previewer from "~/components/previewer";
+
 export async function loader({
   params,
 }: LoaderFunctionArgs) {
@@ -45,9 +47,7 @@ export default function Book() {
       </div>
 
       <div className="book-id-main">
-        <div className="book-id-main-content">
-          <iframe title="book-view" src={fileUrl} width={"100%"} height={"100% auto"}/>
-        </div>
+        <Previewer file={book.format} url={fileUrl}/>
       </div>
 
       <div className="book-id-right">

@@ -1,0 +1,77 @@
+/* #region Banner CSS */
+.banner-frame {
+    /* background-color: white; */
+    /* border-top: 2px double gray; */
+    border-bottom: 2px double gray;
+    padding: 0 15%;
+
+    display: grid;
+    grid-template-columns: 4rem 1fr 4rem;  
+}
+.banner-frame img {
+    width: 2.4rem;
+    overflow: hidden;
+}
+
+.banner-logo {
+    place-self: center;
+}
+
+.banner-menu {
+    place-self: center;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, fit-content(4rem));
+    place-items: center;
+    gap: 1.5rem;
+}
+.banner-menu-search {
+    position: relative;
+}
+.banner-menu-search * {
+    cursor: pointer;
+}
+.banner-menu-search input {
+    width: 10rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 0 1rem;
+    
+    background: white;
+    border: 2px solid #324b4e;
+    border-radius: 2rem;
+    outline: none;
+
+    transition: .3s linear;
+}
+.banner-menu-search button {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0;
+    border: none;
+
+    position: absolute;
+    top: 0;
+    right: 0.4rem;
+
+    cursor: pointer;
+    outline: none;
+
+    background-color: transparent;
+    background-image: url("/icons/search.png");
+    background-size: 1rem 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.banner-acount {
+    place-self: center;
+}
+
+.banner-button {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+/* #endregion */
