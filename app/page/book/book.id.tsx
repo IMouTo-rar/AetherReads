@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
-import { NavLink, useLoaderData } from "@remix-run/react";
+import { NavLink, useLoaderData} from "@remix-run/react";
 
 import { serverFindBookById } from "~/impl/impl.books.server";
 
