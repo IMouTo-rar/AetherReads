@@ -41,10 +41,6 @@ p {
     border-radius: 1.5rem;
 }
 
-.book-id-right {
-    display: none;
-}
-
 .book-id-info {
     overflow: hidden;
     transition: height 1s;

@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
-import { NavLink, useLoaderData} from "@remix-run/react";
+import { NavLink, useLoaderData } from "@remix-run/react";
 
 import { serverFindBookById } from "~/impl/impl.books.server";
 
@@ -23,7 +23,7 @@ export async function loader({
 
 export default function Book() {
   const book = useLoaderData<typeof loader>();
-  const fileUrl = "/data/books/" + book.id + "/" + book.file;
+  const fileUrl = "/books/" + book.id + "/" + book.file;
   return (
     <div className="book-id-frame">
       <div className="book-id-left">
@@ -47,12 +47,11 @@ export default function Book() {
       </div>
 
       <div className="book-id-main">
-        <Previewer file={book.format} url={fileUrl}/>
+        <Previewer file={book.format} url={fileUrl} />
       </div>
 
-      <div className="book-id-right">
-        <h3>Chapter</h3>
-        <hr />
+      <div className="book-id-right" style={{display: "none"}}>
+        
       </div>
     </div>
   );

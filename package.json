@@ -21,7 +21,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lazy-load": "^4.0.1",
-    "react-pdf": "^8.0.2"
+    "react-pdf": "^8.0.2",
+    "react-reader": "^2.0.10"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.8.0",

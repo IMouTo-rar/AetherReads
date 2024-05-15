@@ -15,24 +15,39 @@ export default function Previewer(props: { file: string; url: string; }) {
 }
 
 // epub render
+import { ReactReader } from "react-reader";
 function PreviewerEPUB(props: { url: string }) {
+  const [location, setLocation] = useState<string | number>(0);
   return (
-    <div>
-      {props.url}
+    <div className="epub-view">
+      <ReactReader
+        url={props.url}
+        location={location}
+        locationChanged={(epubcfi: string) => setLocation(epubcfi)}
+        epubInitOptions={{
+          openAs: 'epub',
+        }}
+        epubOptions={{
+          allowPopups: true,
+          allowScriptedContent: true,
+          flow: 'scrolled',
+          manager: 'continuous',
+        }}
+      />
     </div>
   );
 }
 
-// pdf render
+
+// #region pdf render
 import { Document, Page, pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 function PreviewerPDF(props: { url: string }) {
-  const [pageRenderCount, setPgaeRenderCount] = useState(20); // 一次渲染范围
   const [pageNumber, setPageNumber] = useState(1);            // 页码
   const [pageNumberInput, setPageNumberInput] = useState(1);  // 显示的页码
   const [numPages, setNumPages] = useState(0);                // 总页数
   const [pageWidth, setPageWidth] = useState(600);            // 页面宽度
-  const [pageHeight, setPageHeight] = useState(850);          // 页面高度
+  const [pageHeight, setPageHeight] = useState(800);          // 页面高度
   const [fullscreen, setFullscreen] = useState(false);        // 全屏
 
   const onDocumentLoadSuccess = ({ numPages = 0 }) => {
@@ -44,16 +59,13 @@ function PreviewerPDF(props: { url: string }) {
     for (let i = 0; i < numPages; i++) {
       page.push(
         <LazyLoad
-          className="pdf-reader-page"
-          width={pageWidth}
           height={pageHeight}
           threshold={0.10}
-          key={`lazy` + i}
+          key={`lazy-` + i}
         >
           <Page
-            key={pageNumber + i}
+            key={`page-` + i}
             pageNumber={pageNumber + i}
-            width={pageWidth}
             height={pageHeight}
             loading={'加载中...'}
           >
@@ -67,6 +79,7 @@ function PreviewerPDF(props: { url: string }) {
   return (
     <div className="pdf-view">
       <div className="pdf-page">
+
         <Document
           file={props.url}
           loading={'加载中...'}
@@ -79,6 +92,7 @@ function PreviewerPDF(props: { url: string }) {
   );
 
 }
+// #endregion
 
 // something wrong.
 function PreviewerError() {
