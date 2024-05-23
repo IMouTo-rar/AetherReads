@@ -44,7 +44,7 @@
 
     transition: .3s linear;
 }
-.banner-menu-search button {
+.banner-menu-search .icon {
     width: 1.6rem;
     height: 1.6rem;
     margin: 0;

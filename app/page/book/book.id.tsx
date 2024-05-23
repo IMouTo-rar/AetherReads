@@ -62,7 +62,7 @@ function TagList() {
   const tagsArray = Array.from(book.tags).map(item => String(item))
   const tags = tagsArray.map((tag) =>
     <div className="book-id-tag" key={'tag-' + tag}>
-      <NavLink to={"/book"}>
+      <NavLink to={"/book?tags=" + tag}>
         {tag}
       </NavLink>
     </div>

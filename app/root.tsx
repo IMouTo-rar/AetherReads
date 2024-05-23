@@ -7,17 +7,23 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { useState } from "react";
 
 import styles from "~/style/root.css";
 import Banner from "./components/banner";
 import bannerStyle from "~/components/style/banner.css";
+import Search from "./components/search";
+import searchStyle from "./components/style/search.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
-  { rel: "stylesheet", href: bannerStyle }
+  { rel: "stylesheet", href: bannerStyle },
+  { rel: "stylesheet", href: searchStyle }
 ];
 
 export default function App() {
+  const [activeSearch, setActiveSearch] = useState(false);
+
   return (
     <html lang="en">
       <head>
@@ -30,7 +36,14 @@ export default function App() {
       <body style={{ margin: 0 }}>
 
         <div className="root-frame">
-          <Banner />
+          <Banner
+            isActive={activeSearch}
+            toggleActive={() => setActiveSearch(!activeSearch)}
+          />
+          <Search
+            isActive={activeSearch}
+            toggleActive={() => setActiveSearch(!activeSearch)}
+          />
           <Outlet />
         </div>
 

@@ -13,7 +13,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-import styles from "~/page/book/style/book.css";
+import bookStyles from "~/page/book/style/book.css";
+import bookIdStyles from "~/page/book/style/book.id.css";
 
 // PDF Style
 import previewerStyle from "~/components/style/previewer.css";
@@ -21,7 +22,8 @@ import previewerAnnotationLayer from 'react-pdf/dist/Page/AnnotationLayer.css';
 import previewerTextLayer from 'react-pdf/dist/Page/TextLayer.css';
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: bookStyles },
+  { rel: "stylesheet", href: bookIdStyles },
   { rel: "stylesheet", href: previewerStyle },
   { rel: "stylesheet", href: previewerAnnotationLayer },
   { rel: "stylesheet", href: previewerTextLayer },

@@ -1,0 +1,32 @@
+.search {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(101, 108, 133, 0.8);
+    width: 100vw;
+    height: 100vh;
+}
+
+.search.hidden {
+    visibility: hidden;
+}
+
+.search-page {
+    position: relative;
+    margin: 8rem auto auto;
+    width: 40rem;
+    min-height: 12rem;
+    max-height: 30rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.search-input {
+    width: 36rem;
+    height: 2rem;
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+}

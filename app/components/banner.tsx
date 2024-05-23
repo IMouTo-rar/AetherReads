@@ -1,6 +1,20 @@
 import { NavLink } from "@remix-run/react";
 
-export default function Banner() {
+interface BannerProps extends React.HTMLAttributes<HTMLDivElement> {
+  isActive: boolean,
+  toggleActive: VoidFunction
+}
+
+export default function Banner({
+  isActive,
+  toggleActive
+}:BannerProps) {
+  function clickSearch() {
+    if (!isActive) {
+      toggleActive()
+    }
+  }
+
   return (
     <div className="banner-frame">
 
@@ -18,8 +32,8 @@ export default function Banner() {
         </NavLink>
 
         <div className="banner-menu-search">
-          <input type="text" placeholder="Search" readOnly/>
-          <button></button>
+          <input type="text" placeholder="Search" onClick={() => clickSearch()} readOnly/>
+          <div className="icon"></div>
         </div>
 
         <NavLink to={"/personal"}>

@@ -20,7 +20,7 @@ export default function Index() {
     <div className="frame home-frame">
       
 
-      <div>Main Page</div>
+      <div className="page">Main Page</div>
 
     </div>
   );

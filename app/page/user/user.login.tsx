@@ -60,7 +60,7 @@ export default function UserLoginTSX() {
           <input type="password" name="password" />
         </label>
         <br />
-        <input type="submit"></input>
+        <input type="submit"/>
       </Form>
       {error == null ? "" : <p>Invalid username or password.</p>}
     </div>
