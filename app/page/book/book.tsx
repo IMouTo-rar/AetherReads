@@ -86,7 +86,6 @@ export default function Books() {
             name="page"
             type="text"
             value={page}
-            onKeyDown={(event) => {}}
             onChange={(event) => setPage(event.target.value)}
 
           /> of {total_page} pages.
